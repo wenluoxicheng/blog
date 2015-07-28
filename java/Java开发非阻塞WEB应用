@@ -1,0 +1,20 @@
+Explore the asynchronous support provided in several popular web frameworks for implementing non-blocking server-side request processing.
+1、探讨几种支持异步的流行框架，实现服务器端非阻塞请求处理
+
+Web applications traditionally process requests synchronously on the server side. Asynchronous programming, such as Ajax, is generally used on the client side. With the advent of social networking, mobile devices, and the Internet of Things, non-blocking request processing on the server side has taken off as an important technique for meeting ever-more-daunting performance demands. Event-driven, non-blocking, reactive programming has attracted much interest. The rapid fame garnered by Node.js is reflective of the new era that has dawned.
+web应用服务器端处理请求传统的方式是同步的。如ajax，异步编程一般在客户端实现的。 随着社交网络、移动设备以及互联网新兴事件的出现，要想达到曾经令每个人望而却步的性能诉求，在服务器端通过异步处理来自客户端的请求已经变得越有越紧迫。事件驱动、非阻塞、响应式编程吸引了很多兴趣爱好者。声名鹊起的Node.js表明一个新时代已经开启。
+
+Fortunately for Java developers, Java proves incredibly adaptable to the changing world. As a language, it has made steady progress in asynchronous support: non-blocking I/O (NIO) in Java 1.4, the executor service in Java 6, the fork/join framework in Java 7, and lambda expressions in Java 8. Support for asynchronous request processing in web applications began with Servlet 3.0 as part of Java EE 6. Because servlets are the underpinning of many Java web applications, this support marks a significant milestone that opened the door for others in the family. JAX-RS 2.0 followed suit in Java EE 7. High-level concurrency facilities are incorporated into Java EE 7 as managed executor services.
+对于每位java开发中来说幸运的是Java令人难以置信的方式证明能适应变化的世界。作为一门编程语言，Java对于异步编程方面的支持一直在稳步的发展，Java 1.4支持非阻塞I/O (NIO) ，Java 6 支持executor service，Java 7支持fork/join框架以及Java 8对Lambda（闭包）的支持。Servlet 3.0 开始加入Java EE 6来时，就加入了对异步处理请求的支持，因为servlets是需求Web应用的基础，所以对异步编程的的支持具有里程碑的意义
+
+Much progress has also been made in the Java open source community. Akka, Spring Reactor, and RxJava all aim to provide foundational APIs for event-driven reactive programming. Many open source frameworks, such as Spring MVC and Grails, have been retrofitted with asynchronous support. In addition, a new generation of lightweight Java Virtual Machine (JVM) web frameworks, such as the Play Framework and Vert.x, has been built from inception to be non-blocking.
+很大的进步来自于开源社区，Akka、Spring Reactor、RxJava都致力于为事件驱动的响应式编程提供基础的API，许多开源框架已经增加了对异步编程的支持，例如Spring MVC 和 Grails等。此外，像 Play框架和Vert.x这些新一代轻量级的JVM web框架从一开始就是非阻塞模式的。
+
+This article explores asynchronous support in several popular web frameworks: Servlet, JAX-RS, Spring MVC, Vert.x, and the Play Framework. These frameworks represent a large spectrum of choices in the JVM ecosystem, from the old and faithful servlets to recently minted Vert.x. A sample application, todosapp, is also presented to showcase how to implement non-blocking web applications in these frameworks.
+这篇文章探讨Servlet, JAX-RS, Spring MVC, Vert.x, 和the Play Framework这几种流行的web框架对异步编程的支持，这些框架表明在JVM生态系统里异步编程是普遍都倾向的选择，不管是从悠久的servlets到新崛起的Vert.x，还是简单的todosapp应用等这些框架，都展示了实现非阻塞web应用的示例。
+
+Why Use Non-Blocking Processing?
+2、为什么要用非阻塞处理方式
+
+In conventional web applications, each request is processed synchronously with a thread. This is a straightforward and simple thread model, having served many traditional web applications well.
+在传统的web应用中，每一个请求有一个单线程同步处理，这种简单的线程模式应经应用到许多传统的web应用中。
