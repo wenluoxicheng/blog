@@ -1,0 +1,2 @@
+run as Aguments增加vm参数 
+-verbose:gc-Xms20M -Xmx20M -Xmn10M -XX:SurvivorRatio=8 -XX:+PrintGC -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintGCApplicationStoppedTime
